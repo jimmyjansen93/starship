@@ -1,5 +1,36 @@
-[cmd_duration]
-min_time = 60000
+command_timeout = 1000
+
+format = """
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$c\
+$cmake\
+$golang\
+$helm\
+$java\
+$kotlin\
+$gradle\
+$lua\
+$nodejs\
+$php\
+$rust\
+$terraform\
+$zig\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$sudo\
+$line_break\
+$shell\
+$character"""
 
 [aws]
 symbol = "  "
