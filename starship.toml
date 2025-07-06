@@ -1,8 +1,5 @@
-# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Shows directory, then git info, then language/tool versions on the left.
-# Time will be on the right of this line. Then a new line for the prompt character.
 format = """
 $directory\
 $git_branch\
@@ -16,96 +13,86 @@ $kubernetes\
 $line_break\
 $character"""
 
-# Right-aligned prompt elements
 right_format = """
 $time\
 """
 
-# Directory module configuration
 [directory]
 style = "bold blue"
-read_only = " 󰌾"                # Padlock icon
+read_only = " 󰌾"
 read_only_style = "bold red"
 home_symbol = "~"
-truncation_length = 0           # Show the full path
+truncation_length = 0
 truncate_to_repo = false
 
-# Git branch module configuration
 [git_branch]
-symbol = " "                   # Branch icon
+symbol = " "
 style = "bold purple"
 truncation_length = 20
 truncation_symbol = "…"
 
-# Git status module configuration (concise with icons)
 [git_status]
 style = "bold red"
-stashed = " "                  # Floppy disk icon
+stashed = " "
 ahead = "↑"
 behind = "↓"
 diverged = "↕"
-untracked = " "                # Question mark circle icon
-staged = " "                   # Plus icon
-modified = " "                 # Pencil icon
-renamed = " "                  # Right arrow icon
-deleted = " "                  # Minus icon
-conflicted = " "               # Exclamation triangle icon
+untracked = " "
+staged = " "
+modified = " "
+renamed = " "
+deleted = " "
+conflicted = " "
 format = '([$all_status$ahead_behind]($style) )'
 
-# Character module (the prompt symbol itself)
 [character]
 success_symbol = "[❯](bold green)"
 error_symbol = "[❯](bold red)"
 vicmd_symbol = "[❮](bold green)"
 
-# --- Language & Tool Modules ---
-
 [python]
 disabled = false
-symbol = " " # Python icon
+symbol = " "
 format = "[$symbol$version]($style) "
 style = "bold yellow"
 pyenv_version_name = true
 
 [rust]
 disabled = false
-symbol = " " # Rust icon
+symbol = " "
 format = "[$symbol$version]($style) "
 style = "bold orange"
 
 [golang]
 disabled = false
-symbol = " " # Go icon
+symbol = " "
 format = "[$symbol$version]($style) "
 style = "bold cyan"
 
 [nodejs]
 disabled = false
-format = "[$symbol$version]($style) " # Using symbol defined below
-symbol = " " # Node icon
+format = "[$symbol$version]($style) "
+symbol = " "
 style = "bold green"
 
 [docker_context]
 disabled = false
-symbol = " " # Docker icon
+symbol = " "
 format = "[$symbol$context]($style) "
 style = "bold bright-blue"
 
 [kubernetes]
 disabled = false
-symbol = "󱃾 " # Kubernetes icon
+symbol = "󱃾 "
 format = '[$symbol$context(::$namespace)]($style) '
 style = "bold magenta"
 
 [time]
 disabled = false
-style = "dimmed white" # Subtle style for the time
-format = "[$time]($style) " # This format is for when $time is used in the main format or right_format
-time_format = "%T" # Shows HH:MM:SS (e.g., 14:35:00)
+style = "dimmed white"
+format = "[$time]($style) "
+time_format = "%T"
 use_12hr = false
-
-# --- Disabled Modules ---
-# Modules below are explicitly disabled to reduce noise.
 
 [gcloud]
 disabled = true
